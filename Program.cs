@@ -14,22 +14,27 @@ namespace EmployeeWage
             int wagePerHr = 20;
             int fullDayHr = 8;
             int halfDayHr = 4;
-            int monthDays = 20;
+            int totalWorkDays = 0;
             int dailyEmpWage = 0;
+            int totalWorkHrs = 0;
 
-            for (int day = 1; day <= monthDays; day++) 
+            while ( (totalWorkDays <= 20) && (totalWorkHrs <= 100) ) 
             {
                 switch ( rnd.Next(0, 3) )
                 {
                     case 1:
                         int dailyWage = fullDayHr * wagePerHr;
                         dailyEmpWage += dailyWage;
+                        totalWorkHrs += fullDayHr;
+                        totalWorkDays++;
                         Console.WriteLine("Employee is Present and Wage is:" + dailyWage);
                         break;
 
                     case 2:
                         int partTimeWage = halfDayHr * wagePerHr;
                         dailyEmpWage += partTimeWage;
+                        totalWorkHrs += halfDayHr;
+                        totalWorkDays++;
                         Console.WriteLine("Employee is Present half Day and Wage is:" + partTimeWage);
                         break;
 
@@ -38,6 +43,8 @@ namespace EmployeeWage
                         break;
                 }
             }
+            Console.WriteLine("Total Working Day is:" + totalWorkDays);
+            Console.WriteLine("Total Working Hours is:" + totalWorkHrs);
             Console.WriteLine("Wages for a Month is:" + dailyEmpWage);
         }
     }
