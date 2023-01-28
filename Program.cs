@@ -11,9 +11,13 @@ namespace EmployeeWage
             Random rnd = new Random();
             int isEmpPresent = rnd.Next(0, 2);
 
+            int wagePerHr = 20;
+            int fullDayHr = 8;
+
             if (isEmpPresent == 1)
             {
-                Console.WriteLine("Employee is Present");
+                int dailyEmpWage = fullDayHr * wagePerHr;
+                Console.WriteLine("Employee is Present and Wage is:" + dailyEmpWage);
             }
             else
             {
